@@ -452,6 +452,8 @@ services:
       SENTRY_PROFILES_SAMPLE_RATE: ${API_SENTRY_PROFILES_SAMPLE_RATE:-1.0}
       PLUGIN_MAX_PACKAGE_SIZE: ${PLUGIN_MAX_PACKAGE_SIZE:-52428800}
       INNER_API_KEY_FOR_PLUGIN: ${PLUGIN_DIFY_INNER_API_KEY:-QaHbTe77CtuXmsfyhR7+vRjI/+XbV1AaFy691iy+kGDv2Jvy0/eAh8Y1}
+    ports:
+      - '${API_PORT:-5001}:5001'
     depends_on:
       - db
       - redis
@@ -495,6 +497,8 @@ services:
   web:
     image: langgenius/dify-web:1.1.3
     restart: always
+    ports:
+      - '${WEB_PORT:-3000}:3000'
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
       APP_API_URL: ${APP_API_URL:-}
@@ -595,7 +599,8 @@ services:
       PLUGIN_MAX_EXECUTION_TIMEOUT: ${PLUGIN_MAX_EXECUTION_TIMEOUT:-600}
       PIP_MIRROR_URL: ${PIP_MIRROR_URL:-}
     ports:
-      - '${EXPOSE_PLUGIN_DEBUGGING_PORT:-5003}:${PLUGIN_DEBUGGING_PORT:-5003}'
+      - '${PLUGIN_PORT:-4442}:${PLUGIN_DAEMON_PORT:-4442}'
+      - '${EXPOSE_PLUGIN_DEBUGGING_PORT:-4443}:${PLUGIN_DEBUGGING_PORT:-4443}'
     volumes:
       - ./volumes/plugin_daemon:/app/storage
     extra_hosts:
@@ -651,6 +656,8 @@ services:
   # used for reverse proxying the API service and Web service.
   nginx:
     image: nginx:latest
+    profiles:
+      - nginx
     restart: always
     volumes:
       - ./nginx/nginx.conf.template:/etc/nginx/nginx.conf.template
