@@ -1,0 +1,1355 @@
+commit 9dc1f193c2f8000ffdca4fb05400e04aeea75615
+Author: Xun Chen <xunchen369@gmail.com>
+Date:   Wed Apr 9 20:07:45 2025 +0800
+
+    add .env example and README
+
+diff --git a/README.md b/README.md
+index 87ebc9baf..300ed6b5d 100644
+--- a/README.md
++++ b/README.md
+@@ -1,261 +1,76 @@
+-![cover-v5-optimized](https://github.com/langgenius/dify/assets/13230914/f9e19af5-61ba-4119-b926-d10c4c06ebab)
+-
+-<p align="center">
+-  📌 <a href="https://dify.ai/blog/introducing-dify-workflow-file-upload-a-demo-on-ai-podcast">Introducing Dify Workflow File Upload: Recreate Google NotebookLM Podcast</a>
+-</p>
+-
+-<p align="center">
+-  <a href="https://cloud.dify.ai">Dify Cloud</a> ·
+-  <a href="https://docs.dify.ai/getting-started/install-self-hosted">Self-hosting</a> ·
+-  <a href="https://docs.dify.ai">Documentation</a> ·
+-  <a href="https://udify.app/chat/22L1zSxg6yW1cWQg">Enterprise inquiry</a>
+-</p>
+-
+-<p align="center">
+-    <a href="https://dify.ai" target="_blank">
+-        <img alt="Static Badge" src="https://img.shields.io/badge/Product-F04438"></a>
+-    <a href="https://dify.ai/pricing" target="_blank">
+-        <img alt="Static Badge" src="https://img.shields.io/badge/free-pricing?logo=free&color=%20%23155EEF&label=pricing&labelColor=%20%23528bff"></a>
+-    <a href="https://discord.gg/FngNHpbcY7" target="_blank">
+-        <img src="https://img.shields.io/discord/1082486657678311454?logo=discord&labelColor=%20%235462eb&logoColor=%20%23f5f5f5&color=%20%235462eb"
+-            alt="chat on Discord"></a>
+-    <a href="https://reddit.com/r/difyai" target="_blank">  
+-        <img src="https://img.shields.io/reddit/subreddit-subscribers/difyai?style=plastic&logo=reddit&label=r%2Fdifyai&labelColor=white"
+-            alt="join Reddit"></a>
+-    <a href="https://twitter.com/intent/follow?screen_name=dify_ai" target="_blank">
+-        <img src="https://img.shields.io/twitter/follow/dify_ai?logo=X&color=%20%23f5f5f5"
+-            alt="follow on X(Twitter)"></a>
+-    <a href="https://www.linkedin.com/company/langgenius/" target="_blank">
+-        <img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff"
+-            alt="follow on LinkedIn"></a>
+-    <a href="https://hub.docker.com/u/langgenius" target="_blank">
+-        <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/langgenius/dify-web?labelColor=%20%23FDB062&color=%20%23f79009"></a>
+-    <a href="https://github.com/langgenius/dify/graphs/commit-activity" target="_blank">
+-        <img alt="Commits last month" src="https://img.shields.io/github/commit-activity/m/langgenius/dify?labelColor=%20%2332b583&color=%20%2312b76a"></a>
+-    <a href="https://github.com/langgenius/dify/" target="_blank">
+-        <img alt="Issues closed" src="https://img.shields.io/github/issues-search?query=repo%3Alanggenius%2Fdify%20is%3Aclosed&label=issues%20closed&labelColor=%20%237d89b0&color=%20%235d6b98"></a>
+-    <a href="https://github.com/langgenius/dify/discussions/" target="_blank">
+-        <img alt="Discussion posts" src="https://img.shields.io/github/discussions/langgenius/dify?labelColor=%20%239b8afb&color=%20%237a5af8"></a>
+-</p>
+-
+-<p align="center">
+-  <a href="./README.md"><img alt="README in English" src="https://img.shields.io/badge/English-d9d9d9"></a>
+-  <a href="./README_TW.md"><img alt="繁體中文文件" src="https://img.shields.io/badge/繁體中文-d9d9d9"></a>
+-  <a href="./README_CN.md"><img alt="简体中文版自述文件" src="https://img.shields.io/badge/简体中文-d9d9d9"></a>
+-  <a href="./README_JA.md"><img alt="日本語のREADME" src="https://img.shields.io/badge/日本語-d9d9d9"></a>
+-  <a href="./README_ES.md"><img alt="README en Español" src="https://img.shields.io/badge/Español-d9d9d9"></a>
+-  <a href="./README_FR.md"><img alt="README en Français" src="https://img.shields.io/badge/Français-d9d9d9"></a>
+-  <a href="./README_KL.md"><img alt="README tlhIngan Hol" src="https://img.shields.io/badge/Klingon-d9d9d9"></a>
+-  <a href="./README_KR.md"><img alt="README in Korean" src="https://img.shields.io/badge/한국어-d9d9d9"></a>
+-  <a href="./README_AR.md"><img alt="README بالعربية" src="https://img.shields.io/badge/العربية-d9d9d9"></a>
+-  <a href="./README_TR.md"><img alt="Türkçe README" src="https://img.shields.io/badge/Türkçe-d9d9d9"></a>
+-  <a href="./README_VI.md"><img alt="README Tiếng Việt" src="https://img.shields.io/badge/Ti%E1%BA%BFng%20Vi%E1%BB%87t-d9d9d9"></a>
+-  <a href="./README_DE.md"><img alt="README in Deutsch" src="https://img.shields.io/badge/German-d9d9d9"></a>
+-  <a href="./README_BN.md"><img alt="README in বাংলা" src="https://img.shields.io/badge/বাংলা-d9d9d9"></a>
+-</p>
+-
+-Dify is an open-source LLM app development platform. Its intuitive interface combines agentic AI workflow, RAG pipeline, agent capabilities, model management, observability features and more, letting you quickly go from prototype to production.
+-
+-## Quick start
+-
+-> Before installing Dify, make sure your machine meets the following minimum system requirements:
+->
+-> - CPU >= 2 Core
+-> - RAM >= 4 GiB
++Dify 部署说明
++=============
++
++Dify 原有的Docker 自带 11 个 container: 
++此库其中把 `nginx` 和 `db-1` (postgresql) 的container禁掉了
++
++ ✔ Network docker_ssrf_proxy_network  Created                                                                 0.1s 
++ ✔ Network docker_default             Created                                                                 0.0s 
++ ✔ Container docker-redis-1           Started                                                                 2.4s 
++ ✔ Container docker-ssrf_proxy-1      Started                                                                 2.8s 
++ ✔ Container docker-sandbox-1         Started                                                                 2.7s 
++ ✔ Container docker-web-1             Started                                                                 2.7s 
++ ✔ Container docker-weaviate-1        Started                                                                 2.4s 
++ X Container docker-db-1              Disabled                                                                 2.7s 
++ ✔ Container docker-api-1             Started                                                                 6.5s 
++ ✔ Container docker-worker-1          Started                                                                 6.4s 
++ X Container docker-nginx-1           Disabled   
++
++端口也改了
++
++## 关键文件
++- `docker/.env.vs.example`
++- `docker/docker-compose.yaml`
++- `vs-nginx.example.conf`
++
++## 部署方式:
++
++### Git
++```
++git clone git@github.com:ValueSourceInc/dify.git
++git checkout vs
++```
+ 
+-</br>
++### Nginx
++复制 `vs-nginx.example.conf` 到 `/etc/nginx/conf.d`
++检查dify.conf 的配置
++```
++cp vs-nginx.example.conf /etc/nginx/conf.d/dify.conf
++nginx -t
++systemctl restart nginx
++```
+ 
+-The easiest way to start the Dify server is through [docker compose](docker/docker-compose.yaml). Before running Dify with the following commands, make sure that [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) are installed on your machine:
+ 
+-```bash
+-cd dify
++### Docker
++```
+ cd docker
+-cp .env.example .env
+-docker compose up -d
++cp .env.vs.example .env
+ ```
+ 
+-After running, you can access the Dify dashboard in your browser at [http://localhost/install](http://localhost/install) and start the initialization process.
+-
+-#### Seeking help
+-
+-Please refer to our [FAQ](https://docs.dify.ai/getting-started/install-self-hosted/faqs) if you encounter problems setting up Dify. Reach out to [the community and us](#community--contact) if you are still having issues.
+-
+-> If you'd like to contribute to Dify or do additional development, refer to our [guide to deploying from source code](https://docs.dify.ai/getting-started/install-self-hosted/local-source-code)
+-
+-## Key features
+-
+-**1. Workflow**:
+-Build and test powerful AI workflows on a visual canvas, leveraging all the following features and beyond.
+-
+-https://github.com/langgenius/dify/assets/13230914/356df23e-1604-483d-80a6-9517ece318aa
+-
+-**2. Comprehensive model support**:
+-Seamless integration with hundreds of proprietary / open-source LLMs from dozens of inference providers and self-hosted solutions, covering GPT, Mistral, Llama3, and any OpenAI API-compatible models. A full list of supported model providers can be found [here](https://docs.dify.ai/getting-started/readme/model-providers).
+-
+-![providers-v5](https://github.com/langgenius/dify/assets/13230914/5a17bdbe-097a-4100-8363-40255b70f6e3)
+-
+-**3. Prompt IDE**:
+-Intuitive interface for crafting prompts, comparing model performance, and adding additional features such as text-to-speech to a chat-based app.
+-
+-**4. RAG Pipeline**:
+-Extensive RAG capabilities that cover everything from document ingestion to retrieval, with out-of-box support for text extraction from PDFs, PPTs, and other common document formats.
+-
+-**5. Agent capabilities**:
+-You can define agents based on LLM Function Calling or ReAct, and add pre-built or custom tools for the agent. Dify provides 50+ built-in tools for AI agents, such as Google Search, DALL·E, Stable Diffusion and WolframAlpha.
+-
+-**6. LLMOps**:
+-Monitor and analyze application logs and performance over time. You could continuously improve prompts, datasets, and models based on production data and annotations.
+-
+-**7. Backend-as-a-Service**:
+-All of Dify's offerings come with corresponding APIs, so you could effortlessly integrate Dify into your own business logic.
+-
+-## Feature Comparison
+-
+-<table style="width: 100%;">
+-  <tr>
+-    <th align="center">Feature</th>
+-    <th align="center">Dify.AI</th>
+-    <th align="center">LangChain</th>
+-    <th align="center">Flowise</th>
+-    <th align="center">OpenAI Assistants API</th>
+-  </tr>
+-  <tr>
+-    <td align="center">Programming Approach</td>
+-    <td align="center">API + App-oriented</td>
+-    <td align="center">Python Code</td>
+-    <td align="center">App-oriented</td>
+-    <td align="center">API-oriented</td>
+-  </tr>
+-  <tr>
+-    <td align="center">Supported LLMs</td>
+-    <td align="center">Rich Variety</td>
+-    <td align="center">Rich Variety</td>
+-    <td align="center">Rich Variety</td>
+-    <td align="center">OpenAI-only</td>
+-  </tr>
+-  <tr>
+-    <td align="center">RAG Engine</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-  </tr>
+-  <tr>
+-    <td align="center">Agent</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-    <td align="center">❌</td>
+-    <td align="center">✅</td>
+-  </tr>
+-  <tr>
+-    <td align="center">Workflow</td>
+-    <td align="center">✅</td>
+-    <td align="center">❌</td>
+-    <td align="center">✅</td>
+-    <td align="center">❌</td>
+-  </tr>
+-  <tr>
+-    <td align="center">Observability</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-    <td align="center">❌</td>
+-    <td align="center">❌</td>
+-  </tr>
+-  <tr>
+-    <td align="center">Enterprise Feature (SSO/Access control)</td>
+-    <td align="center">✅</td>
+-    <td align="center">❌</td>
+-    <td align="center">❌</td>
+-    <td align="center">❌</td>
+-  </tr>
+-  <tr>
+-    <td align="center">Local Deployment</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-    <td align="center">✅</td>
+-    <td align="center">❌</td>
+-  </tr>
+-</table>
+-
+-## Using Dify
+-
+-- **Cloud </br>**
+-  We host a [Dify Cloud](https://dify.ai) service for anyone to try with zero setup. It provides all the capabilities of the self-deployed version, and includes 200 free GPT-4 calls in the sandbox plan.
+-
+-- **Self-hosting Dify Community Edition</br>**
+-  Quickly get Dify running in your environment with this [starter guide](#quick-start).
+-  Use our [documentation](https://docs.dify.ai) for further references and more in-depth instructions.
+-
+-- **Dify for enterprise / organizations</br>**
+-  We provide additional enterprise-centric features. [Log your questions for us through this chatbot](https://udify.app/chat/22L1zSxg6yW1cWQg) or [send us an email](mailto:business@dify.ai?subject=[GitHub]Business%20License%20Inquiry) to discuss enterprise needs. </br>
+-  > For startups and small businesses using AWS, check out [Dify Premium on AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-t22mebxzwjhu6) and deploy it to your own AWS VPC with one-click. It's an affordable AMI offering with the option to create apps with custom logo and branding.
+-
+-## Staying ahead
+-
+-Star Dify on GitHub and be instantly notified of new releases.
+-
+-![star-us](https://github.com/langgenius/dify/assets/13230914/b823edc1-6388-4e25-ad45-2f6b187adbb4)
+-
+-## Advanced Setup
+-
+-If you need to customize the configuration, please refer to the comments in our [.env.example](docker/.env.example) file and update the corresponding values in your `.env` file. Additionally, you might need to make adjustments to the `docker-compose.yaml` file itself, such as changing image versions, port mappings, or volume mounts, based on your specific deployment environment and requirements. After making any changes, please re-run `docker-compose up -d`. You can find the full list of available environment variables [here](https://docs.dify.ai/getting-started/install-self-hosted/environments).
+-
+-If you'd like to configure a highly-available setup, there are community-contributed [Helm Charts](https://helm.sh/) and YAML files which allow Dify to be deployed on Kubernetes.
+-
+-- [Helm Chart by @LeoQuote](https://github.com/douban/charts/tree/master/charts/dify)
+-- [Helm Chart by @BorisPolonsky](https://github.com/BorisPolonsky/dify-helm)
+-- [Helm Chart by @magicsong](https://github.com/magicsong/ai-charts)
+-- [YAML file by @Winson-030](https://github.com/Winson-030/dify-kubernetes)
+-- [YAML file by @wyy-holding](https://github.com/wyy-holding/dify-k8s)
+-
+-#### Using Terraform for Deployment
+-
+-Deploy Dify to Cloud Platform with a single click using [terraform](https://www.terraform.io/)
+-
+-##### Azure Global
+-
+-- [Azure Terraform by @nikawang](https://github.com/nikawang/dify-azure-terraform)
+-
+-##### Google Cloud
+-
+-- [Google Cloud Terraform by @sotazum](https://github.com/DeNA/dify-google-cloud-terraform)
+-
+-#### Using AWS CDK for Deployment
+-
+-Deploy Dify to AWS with [CDK](https://aws.amazon.com/cdk/)
+-
+-##### AWS
+-
+-- [AWS CDK by @KevinZhao](https://github.com/aws-samples/solution-for-deploying-dify-on-aws)
+-
+-## Contributing
+-
+-For those who'd like to contribute code, see our [Contribution Guide](https://github.com/langgenius/dify/blob/main/CONTRIBUTING.md).
+-At the same time, please consider supporting Dify by sharing it on social media and at events and conferences.
+-
+-> We are looking for contributors to help with translating Dify to languages other than Mandarin or English. If you are interested in helping, please see the [i18n README](https://github.com/langgenius/dify/blob/main/web/i18n/README.md) for more information, and leave us a comment in the `global-users` channel of our [Discord Community Server](https://discord.gg/8Tpq4AcN9c).
+-
+-## Community & contact
+-
+-- [Github Discussion](https://github.com/langgenius/dify/discussions). Best for: sharing feedback and asking questions.
+-- [GitHub Issues](https://github.com/langgenius/dify/issues). Best for: bugs you encounter using Dify.AI, and feature proposals. See our [Contribution Guide](https://github.com/langgenius/dify/blob/main/CONTRIBUTING.md).
+-- [Discord](https://discord.gg/FngNHpbcY7). Best for: sharing your applications and hanging out with the community.
+-- [X(Twitter)](https://twitter.com/dify_ai). Best for: sharing your applications and hanging out with the community.
+-
+-**Contributors**
+-
+-<a href="https://github.com/langgenius/dify/graphs/contributors">
+-  <img src="https://contrib.rocks/image?repo=langgenius/dify" />
+-</a>
++填写 `.env` 文件里数据库信息
++```
++DB_USERNAME={数据库用户名}
++DB_PASSWORD={数据库密码}
++```
+ 
+-## Star history
+ 
+-[![Star History Chart](https://api.star-history.com/svg?repos=langgenius/dify&type=Date)](https://star-history.com/#langgenius/dify&Date)
++#### 启动
++启动前确保数据库中有 `dify` db instance
++```
++docker-compose up -d
++```
+ 
+-## Security disclosure
++### 关闭
++```
++docker-compose down
++```
+ 
+-To protect your privacy, please avoid posting security issues on GitHub. Instead, send your questions to security@dify.ai and we will provide you with a more detailed answer.
++### Troubleshooting
+ 
+-## License
++##### DB 中 schema 没生成 服务器报 500 怎么办？
++确保数据库中 `dify` db 存在
+ 
+-This repository is available under the [Dify Open Source License](LICENSE), which is essentially Apache 2.0 with a few additional restrictions.
++*重新生成schema*
++```
++docker compose restart api
++```
+\ No newline at end of file
+diff --git a/docker/.env.vs.example b/docker/.env.vs.example
+new file mode 100644
+index 000000000..a23e0300b
+--- /dev/null
++++ b/docker/.env.vs.example
+@@ -0,0 +1,1012 @@
++# ------------------------------
++# Environment Variables for API service & worker
++# ------------------------------
++
++# ------------------------------
++# Common Variables
++# ------------------------------
++
++# The backend URL of the console API,
++# used to concatenate the authorization callback.
++# If empty, it is the same domain.
++# Example: https://api.console.dify.ai
++CONSOLE_API_URL=https://dify.vsource.local/console/api
++
++# The front-end URL of the console web,
++# used to concatenate some front-end addresses and for CORS configuration use.
++# If empty, it is the same domain.
++# Example: https://console.dify.ai
++CONSOLE_WEB_URL=https://dify.vsource.local
++
++# Service API Url,
++# used to display Service API Base Url to the front-end.
++# If empty, it is the same domain.
++# Example: https://api.dify.ai
++SERVICE_API_URL=https://dify.vsource.local/api
++
++# WebApp API backend Url,
++# used to declare the back-end URL for the front-end API.
++# If empty, it is the same domain.
++# Example: https://api.app.dify.ai
++APP_API_URL=https://dify.vsource.local/api
++
++# WebApp Url,
++# used to display WebAPP API Base Url to the front-end.
++# If empty, it is the same domain.
++# Example: https://app.dify.ai
++APP_WEB_URL=https://dify.vsource.local
++
++# File preview or download Url prefix.
++# used to display File preview or download Url to the front-end or as Multi-model inputs;
++# Url is signed and has expiration time.
++FILES_URL=https://dify.vsource.local/files
++
++# Ports to use when using local nginx instead of the containerized one
++API_PORT=4441
++WEB_PORT=4440
++PLUGIN_PORT=4442
++
++# ------------------------------
++# Server Configuration
++# ------------------------------
++
++# The log level for the application.
++# Supported values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`
++LOG_LEVEL=INFO
++# Log file path
++LOG_FILE=/app/logs/server.log
++# Log file max size, the unit is MB
++LOG_FILE_MAX_SIZE=20
++# Log file max backup count
++LOG_FILE_BACKUP_COUNT=5
++# Log dateformat
++LOG_DATEFORMAT=%Y-%m-%d %H:%M:%S
++# Log Timezone
++LOG_TZ=UTC
++
++# Debug mode, default is false.
++# It is recommended to turn on this configuration for local development
++# to prevent some problems caused by monkey patch.
++DEBUG=false
++
++# Flask debug mode, it can output trace information at the interface when turned on,
++# which is convenient for debugging.
++FLASK_DEBUG=false
++
++# A secret key that is used for securely signing the session cookie
++# and encrypting sensitive information on the database.
++# You can generate a strong key using `openssl rand -base64 42`.
++SECRET_KEY=sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U
++
++# Password for admin user initialization.
++# If left unset, admin user will not be prompted for a password
++# when creating the initial admin account. 
++# The length of the password cannot exceed 30 characters.
++INIT_PASSWORD=
++
++# Deployment environment.
++# Supported values are `PRODUCTION`, `TESTING`. Default is `PRODUCTION`.
++# Testing environment. There will be a distinct color label on the front-end page,
++# indicating that this environment is a testing environment.
++DEPLOY_ENV=PRODUCTION
++
++# Whether to enable the version check policy.
++# If set to empty, https://updates.dify.ai will be called for version check.
++CHECK_UPDATE_URL=https://updates.dify.ai
++
++# Used to change the OpenAI base address, default is https://api.openai.com/v1.
++# When OpenAI cannot be accessed in China, replace it with a domestic mirror address,
++# or when a local model provides OpenAI compatible API, it can be replaced.
++OPENAI_API_BASE=https://api.openai.com/v1
++
++# When enabled, migrations will be executed prior to application startup
++# and the application will start after the migrations have completed.
++MIGRATION_ENABLED=true
++
++# File Access Time specifies a time interval in seconds for the file to be accessed.
++# The default value is 300 seconds.
++FILES_ACCESS_TIMEOUT=300
++
++# Access token expiration time in minutes
++ACCESS_TOKEN_EXPIRE_MINUTES=60
++
++# Refresh token expiration time in days
++REFRESH_TOKEN_EXPIRE_DAYS=30
++
++# The maximum number of active requests for the application, where 0 means unlimited, should be a non-negative integer.
++APP_MAX_ACTIVE_REQUESTS=0
++APP_MAX_EXECUTION_TIME=1200
++
++# ------------------------------
++# Container Startup Related Configuration
++# Only effective when starting with docker image or docker-compose.
++# ------------------------------
++
++# API service binding address, default: 0.0.0.0, i.e., all addresses can be accessed.
++DIFY_BIND_ADDRESS=0.0.0.0
++
++# API service binding port number, default 5001.
++DIFY_PORT=5001
++
++# The number of API server workers, i.e., the number of workers.
++# Formula: number of cpu cores x 2 + 1 for sync, 1 for Gevent
++# Reference: https://docs.gunicorn.org/en/stable/design.html#how-many-workers
++SERVER_WORKER_AMOUNT=1
++
++# Defaults to gevent. If using windows, it can be switched to sync or solo.
++SERVER_WORKER_CLASS=gevent
++
++# Default number of worker connections, the default is 10.
++SERVER_WORKER_CONNECTIONS=10
++
++# Similar to SERVER_WORKER_CLASS.
++# If using windows, it can be switched to sync or solo.
++CELERY_WORKER_CLASS=
++
++# Request handling timeout. The default is 200,
++# it is recommended to set it to 360 to support a longer sse connection time.
++GUNICORN_TIMEOUT=360
++
++# The number of Celery workers. The default is 1, and can be set as needed.
++CELERY_WORKER_AMOUNT=
++
++# Flag indicating whether to enable autoscaling of Celery workers.
++#
++# Autoscaling is useful when tasks are CPU intensive and can be dynamically
++# allocated and deallocated based on the workload.
++#
++# When autoscaling is enabled, the maximum and minimum number of workers can
++# be specified. The autoscaling algorithm will dynamically adjust the number
++# of workers within the specified range.
++#
++# Default is false (i.e., autoscaling is disabled).
++#
++# Example:
++# CELERY_AUTO_SCALE=true
++CELERY_AUTO_SCALE=false
++
++# The maximum number of Celery workers that can be autoscaled.
++# This is optional and only used when autoscaling is enabled.
++# Default is not set.
++CELERY_MAX_WORKERS=
++
++# The minimum number of Celery workers that can be autoscaled.
++# This is optional and only used when autoscaling is enabled.
++# Default is not set.
++CELERY_MIN_WORKERS=
++
++# API Tool configuration
++API_TOOL_DEFAULT_CONNECT_TIMEOUT=10
++API_TOOL_DEFAULT_READ_TIMEOUT=60
++
++
++# ------------------------------
++# Database Configuration
++# The database uses PostgreSQL. Please use the public schema.
++# It is consistent with the configuration in the 'db' service below.
++# ------------------------------
++
++DB_USERNAME=root
++DB_PASSWORD={VS数据库密码}
++DB_HOST=host.docker.internal
++DB_PORT=5432
++DB_DATABASE=dify
++# The size of the database connection pool.
++# The default is 30 connections, which can be appropriately increased.
++SQLALCHEMY_POOL_SIZE=30
++# Database connection pool recycling time, the default is 3600 seconds.
++SQLALCHEMY_POOL_RECYCLE=3600
++# Whether to print SQL, default is false.
++SQLALCHEMY_ECHO=false
++
++# Maximum number of connections to the database
++# Default is 100
++#
++# Reference: https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS
++POSTGRES_MAX_CONNECTIONS=100
++
++# Sets the amount of shared memory used for postgres's shared buffers.
++# Default is 128MB
++# Recommended value: 25% of available memory
++# Reference: https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS
++POSTGRES_SHARED_BUFFERS=128MB
++
++# Sets the amount of memory used by each database worker for working space.
++# Default is 4MB
++#
++# Reference: https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM
++POSTGRES_WORK_MEM=4MB
++
++# Sets the amount of memory reserved for maintenance activities.
++# Default is 64MB
++#
++# Reference: https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM
++POSTGRES_MAINTENANCE_WORK_MEM=64MB
++
++# Sets the planner's assumption about the effective cache size.
++# Default is 4096MB
++#
++# Reference: https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE
++POSTGRES_EFFECTIVE_CACHE_SIZE=4096MB
++
++# ------------------------------
++# Redis Configuration
++# This Redis configuration is used for caching and for pub/sub during conversation.
++# ------------------------------
++
++REDIS_HOST=redis
++REDIS_PORT=6379
++REDIS_USERNAME=
++REDIS_PASSWORD=difyai123456
++REDIS_USE_SSL=false
++REDIS_DB=0
++
++# Whether to use Redis Sentinel mode.
++# If set to true, the application will automatically discover and connect to the master node through Sentinel.
++REDIS_USE_SENTINEL=false
++
++# List of Redis Sentinel nodes. If Sentinel mode is enabled, provide at least one Sentinel IP and port.
++# Format: `<sentinel1_ip>:<sentinel1_port>,<sentinel2_ip>:<sentinel2_port>,<sentinel3_ip>:<sentinel3_port>`
++REDIS_SENTINELS=
++REDIS_SENTINEL_SERVICE_NAME=
++REDIS_SENTINEL_USERNAME=
++REDIS_SENTINEL_PASSWORD=
++REDIS_SENTINEL_SOCKET_TIMEOUT=0.1
++
++# List of Redis Cluster nodes. If Cluster mode is enabled, provide at least one Cluster IP and port.
++# Format: `<Cluster1_ip>:<Cluster1_port>,<Cluster2_ip>:<Cluster2_port>,<Cluster3_ip>:<Cluster3_port>`
++REDIS_USE_CLUSTERS=false
++REDIS_CLUSTERS=
++REDIS_CLUSTERS_PASSWORD=
++
++# ------------------------------
++# Celery Configuration
++# ------------------------------
++
++# Use redis as the broker, and redis db 1 for celery broker.
++# Format as follows: `redis://<redis_username>:<redis_password>@<redis_host>:<redis_port>/<redis_database>`
++# Example: redis://:difyai123456@redis:6379/1
++# If use Redis Sentinel, format as follows: `sentinel://<sentinel_username>:<sentinel_password>@<sentinel_host>:<sentinel_port>/<redis_database>`
++# Example: sentinel://localhost:26379/1;sentinel://localhost:26380/1;sentinel://localhost:26381/1
++CELERY_BROKER_URL=redis://:difyai123456@redis:6379/1
++BROKER_USE_SSL=false
++
++# If you are using Redis Sentinel for high availability, configure the following settings.
++CELERY_USE_SENTINEL=false
++CELERY_SENTINEL_MASTER_NAME=
++CELERY_SENTINEL_SOCKET_TIMEOUT=0.1
++
++# ------------------------------
++# CORS Configuration
++# Used to set the front-end cross-domain access policy.
++# ------------------------------
++
++# Specifies the allowed origins for cross-origin requests to the Web API,
++# e.g. https://dify.app or * for all origins.
++WEB_API_CORS_ALLOW_ORIGINS=https://dify.vsource.local
++
++# Specifies the allowed origins for cross-origin requests to the console API,
++# e.g. https://cloud.dify.ai or * for all origins.
++CONSOLE_CORS_ALLOW_ORIGINS=https://dify.vsource.local
++
++# ------------------------------
++# File Storage Configuration
++# ------------------------------
++
++# The type of storage to use for storing user files.
++STORAGE_TYPE=opendal
++
++# Apache OpenDAL Configuration
++# The configuration for OpenDAL consists of the following format: OPENDAL_<SCHEME_NAME>_<CONFIG_NAME>.
++# You can find all the service configurations (CONFIG_NAME) in the repository at: https://github.com/apache/opendal/tree/main/core/src/services.
++# Dify will scan configurations starting with OPENDAL_<SCHEME_NAME> and automatically apply them.
++# The scheme name for the OpenDAL storage.
++OPENDAL_SCHEME=fs
++# Configurations for OpenDAL Local File System.
++OPENDAL_FS_ROOT=storage
++
++# S3 Configuration
++#
++S3_ENDPOINT=
++S3_REGION=us-east-1
++S3_BUCKET_NAME=difyai
++S3_ACCESS_KEY=
++S3_SECRET_KEY=
++# Whether to use AWS managed IAM roles for authenticating with the S3 service.
++# If set to false, the access key and secret key must be provided.
++S3_USE_AWS_MANAGED_IAM=false
++
++# Azure Blob Configuration
++#
++AZURE_BLOB_ACCOUNT_NAME=difyai
++AZURE_BLOB_ACCOUNT_KEY=difyai
++AZURE_BLOB_CONTAINER_NAME=difyai-container
++AZURE_BLOB_ACCOUNT_URL=https://<your_account_name>.blob.core.windows.net
++
++# Google Storage Configuration
++#
++GOOGLE_STORAGE_BUCKET_NAME=your-bucket-name
++GOOGLE_STORAGE_SERVICE_ACCOUNT_JSON_BASE64=
++
++# The Alibaba Cloud OSS configurations,
++#
++ALIYUN_OSS_BUCKET_NAME=your-bucket-name
++ALIYUN_OSS_ACCESS_KEY=your-access-key
++ALIYUN_OSS_SECRET_KEY=your-secret-key
++ALIYUN_OSS_ENDPOINT=https://oss-ap-southeast-1-internal.aliyuncs.com
++ALIYUN_OSS_REGION=ap-southeast-1
++ALIYUN_OSS_AUTH_VERSION=v4
++# Don't start with '/'. OSS doesn't support leading slash in object names.
++ALIYUN_OSS_PATH=your-path
++
++# Tencent COS Configuration
++#
++TENCENT_COS_BUCKET_NAME=your-bucket-name
++TENCENT_COS_SECRET_KEY=your-secret-key
++TENCENT_COS_SECRET_ID=your-secret-id
++TENCENT_COS_REGION=your-region
++TENCENT_COS_SCHEME=your-scheme
++
++# Oracle Storage Configuration
++#
++OCI_ENDPOINT=https://your-object-storage-namespace.compat.objectstorage.us-ashburn-1.oraclecloud.com
++OCI_BUCKET_NAME=your-bucket-name
++OCI_ACCESS_KEY=your-access-key
++OCI_SECRET_KEY=your-secret-key
++OCI_REGION=us-ashburn-1
++
++# Huawei OBS Configuration
++#
++HUAWEI_OBS_BUCKET_NAME=your-bucket-name
++HUAWEI_OBS_SECRET_KEY=your-secret-key
++HUAWEI_OBS_ACCESS_KEY=your-access-key
++HUAWEI_OBS_SERVER=your-server-url
++
++# Volcengine TOS Configuration
++#
++VOLCENGINE_TOS_BUCKET_NAME=your-bucket-name
++VOLCENGINE_TOS_SECRET_KEY=your-secret-key
++VOLCENGINE_TOS_ACCESS_KEY=your-access-key
++VOLCENGINE_TOS_ENDPOINT=your-server-url
++VOLCENGINE_TOS_REGION=your-region
++
++# Baidu OBS Storage Configuration
++#
++BAIDU_OBS_BUCKET_NAME=your-bucket-name
++BAIDU_OBS_SECRET_KEY=your-secret-key
++BAIDU_OBS_ACCESS_KEY=your-access-key
++BAIDU_OBS_ENDPOINT=your-server-url
++
++# Supabase Storage Configuration
++#
++SUPABASE_BUCKET_NAME=your-bucket-name
++SUPABASE_API_KEY=your-access-key
++SUPABASE_URL=your-server-url
++
++# ------------------------------
++# Vector Database Configuration
++# ------------------------------
++
++# The type of vector store to use.
++# Supported values are `weaviate`, `qdrant`, `milvus`, `myscale`, `relyt`, `pgvector`, `pgvecto-rs`, `chroma`, `opensearch`, `tidb_vector`, `oracle`, `tencent`, `elasticsearch`, `elasticsearch-ja`, `analyticdb`, `couchbase`, `vikingdb`, `oceanbase`, `opengauss`, `tablestore`.
++VECTOR_STORE=weaviate
++
++# The Weaviate endpoint URL. Only available when VECTOR_STORE is `weaviate`.
++WEAVIATE_ENDPOINT=http://weaviate:8080
++WEAVIATE_API_KEY=WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih
++
++# The Qdrant endpoint URL. Only available when VECTOR_STORE is `qdrant`.
++QDRANT_URL=http://qdrant:6333
++QDRANT_API_KEY=difyai123456
++QDRANT_CLIENT_TIMEOUT=20
++QDRANT_GRPC_ENABLED=false
++QDRANT_GRPC_PORT=6334
++
++# Milvus configuration. Only available when VECTOR_STORE is `milvus`.
++# The milvus uri.
++MILVUS_URI=http://host.docker.internal:19530
++MILVUS_TOKEN=
++MILVUS_USER=
++MILVUS_PASSWORD=
++MILVUS_ENABLE_HYBRID_SEARCH=False
++
++# MyScale configuration, only available when VECTOR_STORE is `myscale`
++# For multi-language support, please set MYSCALE_FTS_PARAMS with referring to:
++# https://myscale.com/docs/en/text-search/#understanding-fts-index-parameters
++MYSCALE_HOST=myscale
++MYSCALE_PORT=8123
++MYSCALE_USER=default
++MYSCALE_PASSWORD=
++MYSCALE_DATABASE=dify
++MYSCALE_FTS_PARAMS=
++
++# Couchbase configurations, only available when VECTOR_STORE is `couchbase`
++# The connection string must include hostname defined in the docker-compose file (couchbase-server in this case)
++COUCHBASE_CONNECTION_STRING=couchbase://couchbase-server
++COUCHBASE_USER=Administrator
++COUCHBASE_PASSWORD=password
++COUCHBASE_BUCKET_NAME=Embeddings
++COUCHBASE_SCOPE_NAME=_default
++
++# pgvector configurations, only available when VECTOR_STORE is `pgvector`
++PGVECTOR_HOST=host.docker.internal
++PGVECTOR_PORT=5432
++PGVECTOR_USER=postgres
++PGVECTOR_PASSWORD=difyai123456
++PGVECTOR_DATABASE=dify
++PGVECTOR_MIN_CONNECTION=1
++PGVECTOR_MAX_CONNECTION=5
++PGVECTOR_PG_BIGM=false
++PGVECTOR_PG_BIGM_VERSION=1.2-20240606
++
++# pgvecto-rs configurations, only available when VECTOR_STORE is `pgvecto-rs`
++PGVECTO_RS_HOST=pgvecto-rs
++PGVECTO_RS_PORT=5432
++PGVECTO_RS_USER=postgres
++PGVECTO_RS_PASSWORD=difyai123456
++PGVECTO_RS_DATABASE=dify
++
++# analyticdb configurations, only available when VECTOR_STORE is `analyticdb`
++ANALYTICDB_KEY_ID=your-ak
++ANALYTICDB_KEY_SECRET=your-sk
++ANALYTICDB_REGION_ID=cn-hangzhou
++ANALYTICDB_INSTANCE_ID=gp-ab123456
++ANALYTICDB_ACCOUNT=testaccount
++ANALYTICDB_PASSWORD=testpassword
++ANALYTICDB_NAMESPACE=dify
++ANALYTICDB_NAMESPACE_PASSWORD=difypassword
++ANALYTICDB_HOST=gp-test.aliyuncs.com
++ANALYTICDB_PORT=5432
++ANALYTICDB_MIN_CONNECTION=1
++ANALYTICDB_MAX_CONNECTION=5
++
++# TiDB vector configurations, only available when VECTOR_STORE is `tidb`
++TIDB_VECTOR_HOST=tidb
++TIDB_VECTOR_PORT=4000
++TIDB_VECTOR_USER=
++TIDB_VECTOR_PASSWORD=
++TIDB_VECTOR_DATABASE=dify
++
++# Tidb on qdrant configuration, only available when VECTOR_STORE is `tidb_on_qdrant`
++TIDB_ON_QDRANT_URL=http://127.0.0.1
++TIDB_ON_QDRANT_API_KEY=dify
++TIDB_ON_QDRANT_CLIENT_TIMEOUT=20
++TIDB_ON_QDRANT_GRPC_ENABLED=false
++TIDB_ON_QDRANT_GRPC_PORT=6334
++TIDB_PUBLIC_KEY=dify
++TIDB_PRIVATE_KEY=dify
++TIDB_API_URL=http://127.0.0.1
++TIDB_IAM_API_URL=http://127.0.0.1
++TIDB_REGION=regions/aws-us-east-1
++TIDB_PROJECT_ID=dify
++TIDB_SPEND_LIMIT=100
++
++# Chroma configuration, only available when VECTOR_STORE is `chroma`
++CHROMA_HOST=127.0.0.1
++CHROMA_PORT=8000
++CHROMA_TENANT=default_tenant
++CHROMA_DATABASE=default_database
++CHROMA_AUTH_PROVIDER=chromadb.auth.token_authn.TokenAuthClientProvider
++CHROMA_AUTH_CREDENTIALS=
++
++# Oracle configuration, only available when VECTOR_STORE is `oracle`
++ORACLE_USER=dify
++ORACLE_PASSWORD=dify
++ORACLE_DSN=oracle:1521/FREEPDB1
++ORACLE_CONFIG_DIR=/app/api/storage/wallet
++ORACLE_WALLET_LOCATION=/app/api/storage/wallet
++ORACLE_WALLET_PASSWORD=dify
++ORACLE_IS_AUTONOMOUS=false
++
++# relyt configurations, only available when VECTOR_STORE is `relyt`
++RELYT_HOST=db
++RELYT_PORT=5432
++RELYT_USER=postgres
++RELYT_PASSWORD=difyai123456
++RELYT_DATABASE=postgres
++
++# open search configuration, only available when VECTOR_STORE is `opensearch`
++OPENSEARCH_HOST=opensearch
++OPENSEARCH_PORT=9200
++OPENSEARCH_USER=admin
++OPENSEARCH_PASSWORD=admin
++OPENSEARCH_SECURE=true
++
++# tencent vector configurations, only available when VECTOR_STORE is `tencent`
++TENCENT_VECTOR_DB_URL=http://127.0.0.1
++TENCENT_VECTOR_DB_API_KEY=dify
++TENCENT_VECTOR_DB_TIMEOUT=30
++TENCENT_VECTOR_DB_USERNAME=dify
++TENCENT_VECTOR_DB_DATABASE=dify
++TENCENT_VECTOR_DB_SHARD=1
++TENCENT_VECTOR_DB_REPLICAS=2
++TENCENT_VECTOR_DB_ENABLE_HYBRID_SEARCH=false
++
++# ElasticSearch configuration, only available when VECTOR_STORE is `elasticsearch`
++ELASTICSEARCH_HOST=0.0.0.0
++ELASTICSEARCH_PORT=9200
++ELASTICSEARCH_USERNAME=elastic
++ELASTICSEARCH_PASSWORD=elastic
++KIBANA_PORT=5601
++
++# baidu vector configurations, only available when VECTOR_STORE is `baidu`
++BAIDU_VECTOR_DB_ENDPOINT=http://127.0.0.1:5287
++BAIDU_VECTOR_DB_CONNECTION_TIMEOUT_MS=30000
++BAIDU_VECTOR_DB_ACCOUNT=root
++BAIDU_VECTOR_DB_API_KEY=dify
++BAIDU_VECTOR_DB_DATABASE=dify
++BAIDU_VECTOR_DB_SHARD=1
++BAIDU_VECTOR_DB_REPLICAS=3
++
++# VikingDB configurations, only available when VECTOR_STORE is `vikingdb`
++VIKINGDB_ACCESS_KEY=your-ak
++VIKINGDB_SECRET_KEY=your-sk
++VIKINGDB_REGION=cn-shanghai
++VIKINGDB_HOST=api-vikingdb.xxx.volces.com
++VIKINGDB_SCHEMA=http
++VIKINGDB_CONNECTION_TIMEOUT=30
++VIKINGDB_SOCKET_TIMEOUT=30
++
++# Lindorm configuration, only available when VECTOR_STORE is `lindorm`
++LINDORM_URL=http://lindorm:30070
++LINDORM_USERNAME=lindorm
++LINDORM_PASSWORD=lindorm
++
++# OceanBase Vector configuration, only available when VECTOR_STORE is `oceanbase`
++OCEANBASE_VECTOR_HOST=oceanbase
++OCEANBASE_VECTOR_PORT=2881
++OCEANBASE_VECTOR_USER=root@test
++OCEANBASE_VECTOR_PASSWORD=difyai123456
++OCEANBASE_VECTOR_DATABASE=test
++OCEANBASE_CLUSTER_NAME=difyai
++OCEANBASE_MEMORY_LIMIT=6G
++OCEANBASE_ENABLE_HYBRID_SEARCH=false
++
++# opengauss configurations, only available when VECTOR_STORE is `opengauss`
++OPENGAUSS_HOST=opengauss
++OPENGAUSS_PORT=6600
++OPENGAUSS_USER=postgres
++OPENGAUSS_PASSWORD=Dify@123
++OPENGAUSS_DATABASE=dify
++OPENGAUSS_MIN_CONNECTION=1
++OPENGAUSS_MAX_CONNECTION=5
++OPENGAUSS_ENABLE_PQ=false
++
++# Upstash Vector configuration, only available when VECTOR_STORE is `upstash`
++UPSTASH_VECTOR_URL=https://xxx-vector.upstash.io
++UPSTASH_VECTOR_TOKEN=dify
++
++# TableStore Vector configuration
++# (only used when VECTOR_STORE is tablestore)
++TABLESTORE_ENDPOINT=https://instance-name.cn-hangzhou.ots.aliyuncs.com
++TABLESTORE_INSTANCE_NAME=instance-name
++TABLESTORE_ACCESS_KEY_ID=xxx
++TABLESTORE_ACCESS_KEY_SECRET=xxx
++
++# ------------------------------
++# Knowledge Configuration
++# ------------------------------
++
++# Upload file size limit, default 15M.
++UPLOAD_FILE_SIZE_LIMIT=15
++
++# The maximum number of files that can be uploaded at a time, default 5.
++UPLOAD_FILE_BATCH_LIMIT=5
++
++# ETL type, support: `dify`, `Unstructured`
++# `dify` Dify's proprietary file extraction scheme
++# `Unstructured` Unstructured.io file extraction scheme
++ETL_TYPE=dify
++
++# Unstructured API path and API key, needs to be configured when ETL_TYPE is Unstructured
++# Or using Unstructured for document extractor node for pptx.
++# For example: http://unstructured:8000/general/v0/general
++UNSTRUCTURED_API_URL=
++UNSTRUCTURED_API_KEY=
++SCARF_NO_ANALYTICS=true
++
++# ------------------------------
++# Model Configuration
++# ------------------------------
++
++# The maximum number of tokens allowed for prompt generation.
++# This setting controls the upper limit of tokens that can be used by the LLM 
++# when generating a prompt in the prompt generation tool.
++# Default: 512 tokens.
++PROMPT_GENERATION_MAX_TOKENS=512
++
++# The maximum number of tokens allowed for code generation.
++# This setting controls the upper limit of tokens that can be used by the LLM 
++# when generating code in the code generation tool.
++# Default: 1024 tokens.
++CODE_GENERATION_MAX_TOKENS=1024
++
++# ------------------------------
++# Multi-modal Configuration
++# ------------------------------
++
++# The format of the image/video/audio/document sent when the multi-modal model is input,
++# the default is base64, optional url.
++# The delay of the call in url mode will be lower than that in base64 mode.
++# It is generally recommended to use the more compatible base64 mode.
++# If configured as url, you need to configure FILES_URL as an externally accessible address so that the multi-modal model can access the image/video/audio/document.
++MULTIMODAL_SEND_FORMAT=base64
++# Upload image file size limit, default 10M.
++UPLOAD_IMAGE_FILE_SIZE_LIMIT=10
++# Upload video file size limit, default 100M.
++UPLOAD_VIDEO_FILE_SIZE_LIMIT=100
++# Upload audio file size limit, default 50M.
++UPLOAD_AUDIO_FILE_SIZE_LIMIT=50
++
++# ------------------------------
++# Sentry Configuration
++# Used for application monitoring and error log tracking.
++# ------------------------------
++SENTRY_DSN=
++
++# API Service Sentry DSN address, default is empty, when empty,
++# all monitoring information is not reported to Sentry.
++# If not set, Sentry error reporting will be disabled.
++API_SENTRY_DSN=
++# API Service The reporting ratio of Sentry events, if it is 0.01, it is 1%.
++API_SENTRY_TRACES_SAMPLE_RATE=1.0
++# API Service The reporting ratio of Sentry profiles, if it is 0.01, it is 1%.
++API_SENTRY_PROFILES_SAMPLE_RATE=1.0
++
++# Web Service Sentry DSN address, default is empty, when empty,
++# all monitoring information is not reported to Sentry.
++# If not set, Sentry error reporting will be disabled.
++WEB_SENTRY_DSN=
++
++# ------------------------------
++# Notion Integration Configuration
++# Variables can be obtained by applying for Notion integration: https://www.notion.so/my-integrations
++# ------------------------------
++
++# Configure as "public" or "internal".
++# Since Notion's OAuth redirect URL only supports HTTPS,
++# if deploying locally, please use Notion's internal integration.
++NOTION_INTEGRATION_TYPE=public
++# Notion OAuth client secret (used for public integration type)
++NOTION_CLIENT_SECRET=
++# Notion OAuth client id (used for public integration type)
++NOTION_CLIENT_ID=
++# Notion internal integration secret.
++# If the value of NOTION_INTEGRATION_TYPE is "internal",
++# you need to configure this variable.
++NOTION_INTERNAL_SECRET=
++
++# ------------------------------
++# Mail related configuration
++# ------------------------------
++
++# Mail type, support: resend, smtp
++MAIL_TYPE=resend
++
++# Default send from email address, if not specified
++MAIL_DEFAULT_SEND_FROM=
++
++# API-Key for the Resend email provider, used when MAIL_TYPE is `resend`.
++RESEND_API_URL=https://api.resend.com
++RESEND_API_KEY=your-resend-api-key
++
++
++# SMTP server configuration, used when MAIL_TYPE is `smtp`
++SMTP_SERVER=
++SMTP_PORT=465
++SMTP_USERNAME=
++SMTP_PASSWORD=
++SMTP_USE_TLS=true
++SMTP_OPPORTUNISTIC_TLS=false
++
++# ------------------------------
++# Others Configuration
++# ------------------------------
++
++# Maximum length of segmentation tokens for indexing
++INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH=4000
++
++# Member invitation link valid time (hours),
++# Default: 72.
++INVITE_EXPIRY_HOURS=72
++
++# Reset password token valid time (minutes),
++RESET_PASSWORD_TOKEN_EXPIRY_MINUTES=5
++
++# The sandbox service endpoint.
++CODE_EXECUTION_ENDPOINT=http://sandbox:8194
++CODE_EXECUTION_API_KEY=dify-sandbox
++CODE_MAX_NUMBER=9223372036854775807
++CODE_MIN_NUMBER=-9223372036854775808
++CODE_MAX_DEPTH=5
++CODE_MAX_PRECISION=20
++CODE_MAX_STRING_LENGTH=80000
++CODE_MAX_STRING_ARRAY_LENGTH=30
++CODE_MAX_OBJECT_ARRAY_LENGTH=30
++CODE_MAX_NUMBER_ARRAY_LENGTH=1000
++CODE_EXECUTION_CONNECT_TIMEOUT=10
++CODE_EXECUTION_READ_TIMEOUT=60
++CODE_EXECUTION_WRITE_TIMEOUT=10
++TEMPLATE_TRANSFORM_MAX_LENGTH=80000
++
++# Workflow runtime configuration
++WORKFLOW_MAX_EXECUTION_STEPS=500
++WORKFLOW_MAX_EXECUTION_TIME=1200
++WORKFLOW_CALL_MAX_DEPTH=5
++MAX_VARIABLE_SIZE=204800
++WORKFLOW_PARALLEL_DEPTH_LIMIT=3
++WORKFLOW_FILE_UPLOAD_LIMIT=10
++
++# HTTP request node in workflow configuration
++HTTP_REQUEST_NODE_MAX_BINARY_SIZE=10485760
++HTTP_REQUEST_NODE_MAX_TEXT_SIZE=1048576
++HTTP_REQUEST_NODE_SSL_VERIFY=True
++
++# SSRF Proxy server HTTP URL
++SSRF_PROXY_HTTP_URL=http://ssrf_proxy:3128
++# SSRF Proxy server HTTPS URL
++SSRF_PROXY_HTTPS_URL=http://ssrf_proxy:3128
++
++# Maximum loop count in the workflow
++LOOP_NODE_MAX_COUNT=100
++
++# The maximum number of tools that can be used in the agent.
++MAX_TOOLS_NUM=10
++
++# Maximum number of Parallelism branches in the workflow
++MAX_PARALLEL_LIMIT=10
++
++# The maximum number of iterations for agent setting
++MAX_ITERATIONS_NUM=5
++
++# ------------------------------
++# Environment Variables for web Service
++# ------------------------------
++
++# The timeout for the text generation in millisecond
++TEXT_GENERATION_TIMEOUT_MS=60000
++
++# ------------------------------
++# Environment Variables for db Service
++# ------------------------------
++
++PGUSER=${DB_USERNAME}
++# The password for the default postgres user.
++POSTGRES_PASSWORD=${DB_PASSWORD}
++# The name of the default postgres database.
++POSTGRES_DB=${DB_DATABASE}
++# postgres data directory
++PGDATA=/var/lib/postgresql/data/pgdata
++
++# ------------------------------
++# Environment Variables for sandbox Service
++# ------------------------------
++
++# The API key for the sandbox service
++SANDBOX_API_KEY=dify-sandbox
++# The mode in which the Gin framework runs
++SANDBOX_GIN_MODE=release
++# The timeout for the worker in seconds
++SANDBOX_WORKER_TIMEOUT=15
++# Enable network for the sandbox service
++SANDBOX_ENABLE_NETWORK=true
++# HTTP proxy URL for SSRF protection
++SANDBOX_HTTP_PROXY=http://ssrf_proxy:3128
++# HTTPS proxy URL for SSRF protection
++SANDBOX_HTTPS_PROXY=http://ssrf_proxy:3128
++# The port on which the sandbox service runs
++SANDBOX_PORT=8194
++
++# ------------------------------
++# Environment Variables for weaviate Service
++# (only used when VECTOR_STORE is weaviate)
++# ------------------------------
++WEAVIATE_PERSISTENCE_DATA_PATH=/var/lib/weaviate
++WEAVIATE_QUERY_DEFAULTS_LIMIT=25
++WEAVIATE_AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED=true
++WEAVIATE_DEFAULT_VECTORIZER_MODULE=none
++WEAVIATE_CLUSTER_HOSTNAME=node1
++WEAVIATE_AUTHENTICATION_APIKEY_ENABLED=true
++WEAVIATE_AUTHENTICATION_APIKEY_ALLOWED_KEYS=WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih
++WEAVIATE_AUTHENTICATION_APIKEY_USERS=hello@dify.ai
++WEAVIATE_AUTHORIZATION_ADMINLIST_ENABLED=true
++WEAVIATE_AUTHORIZATION_ADMINLIST_USERS=hello@dify.ai
++
++# ------------------------------
++# Environment Variables for Chroma
++# (only used when VECTOR_STORE is chroma)
++# ------------------------------
++
++# Authentication credentials for Chroma server
++CHROMA_SERVER_AUTHN_CREDENTIALS=difyai123456
++# Authentication provider for Chroma server
++CHROMA_SERVER_AUTHN_PROVIDER=chromadb.auth.token_authn.TokenAuthenticationServerProvider
++# Persistence setting for Chroma server
++CHROMA_IS_PERSISTENT=TRUE
++
++# ------------------------------
++# Environment Variables for Oracle Service
++# (only used when VECTOR_STORE is Oracle)
++# ------------------------------
++ORACLE_PWD=Dify123456
++ORACLE_CHARACTERSET=AL32UTF8
++
++# ------------------------------
++# Environment Variables for milvus Service
++# (only used when VECTOR_STORE is milvus)
++# ------------------------------
++# ETCD configuration for auto compaction mode
++ETCD_AUTO_COMPACTION_MODE=revision
++# ETCD configuration for auto compaction retention in terms of number of revisions
++ETCD_AUTO_COMPACTION_RETENTION=1000
++# ETCD configuration for backend quota in bytes
++ETCD_QUOTA_BACKEND_BYTES=4294967296
++# ETCD configuration for the number of changes before triggering a snapshot
++ETCD_SNAPSHOT_COUNT=50000
++# MinIO access key for authentication
++MINIO_ACCESS_KEY=minioadmin
++# MinIO secret key for authentication
++MINIO_SECRET_KEY=minioadmin
++# ETCD service endpoints
++ETCD_ENDPOINTS=etcd:2379
++# MinIO service address
++MINIO_ADDRESS=minio:9000
++# Enable or disable security authorization
++MILVUS_AUTHORIZATION_ENABLED=true
++
++# ------------------------------
++# Environment Variables for pgvector / pgvector-rs Service
++# (only used when VECTOR_STORE is pgvector / pgvector-rs)
++# ------------------------------
++PGVECTOR_PGUSER=postgres
++# The password for the default postgres user.
++PGVECTOR_POSTGRES_PASSWORD=difyai123456
++# The name of the default postgres database.
++PGVECTOR_POSTGRES_DB=dify
++# postgres data directory
++PGVECTOR_PGDATA=/var/lib/postgresql/data/pgdata
++
++# ------------------------------
++# Environment Variables for opensearch
++# (only used when VECTOR_STORE is opensearch)
++# ------------------------------
++OPENSEARCH_DISCOVERY_TYPE=single-node
++OPENSEARCH_BOOTSTRAP_MEMORY_LOCK=true
++OPENSEARCH_JAVA_OPTS_MIN=512m
++OPENSEARCH_JAVA_OPTS_MAX=1024m
++OPENSEARCH_INITIAL_ADMIN_PASSWORD=Qazwsxedc!@#123
++OPENSEARCH_MEMLOCK_SOFT=-1
++OPENSEARCH_MEMLOCK_HARD=-1
++OPENSEARCH_NOFILE_SOFT=65536
++OPENSEARCH_NOFILE_HARD=65536
++
++# ------------------------------
++# Environment Variables for Nginx reverse proxy
++# ------------------------------
++NGINX_SERVER_NAME=_
++NGINX_HTTPS_ENABLED=false
++# HTTP port
++NGINX_PORT=80
++# SSL settings are only applied when HTTPS_ENABLED is true
++NGINX_SSL_PORT=443
++# if HTTPS_ENABLED is true, you're required to add your own SSL certificates/keys to the `./nginx/ssl` directory
++# and modify the env vars below accordingly.
++NGINX_SSL_CERT_FILENAME=dify.crt
++NGINX_SSL_CERT_KEY_FILENAME=dify.key
++NGINX_SSL_PROTOCOLS=TLSv1.1 TLSv1.2 TLSv1.3
++
++# Nginx performance tuning
++NGINX_WORKER_PROCESSES=auto
++NGINX_CLIENT_MAX_BODY_SIZE=15M
++NGINX_KEEPALIVE_TIMEOUT=65
++
++# Proxy settings
++NGINX_PROXY_READ_TIMEOUT=3600s
++NGINX_PROXY_SEND_TIMEOUT=3600s
++
++# Set true to accept requests for /.well-known/acme-challenge/
++NGINX_ENABLE_CERTBOT_CHALLENGE=false
++
++# ------------------------------
++# Certbot Configuration
++# ------------------------------
++
++# Email address (required to get certificates from Let's Encrypt)
++CERTBOT_EMAIL=your_email@example.com
++
++# Domain name
++CERTBOT_DOMAIN=your_domain.com
++
++# certbot command options
++# i.e: --force-renewal --dry-run --test-cert --debug
++CERTBOT_OPTIONS=
++
++# ------------------------------
++# Environment Variables for SSRF Proxy
++# ------------------------------
++SSRF_HTTP_PORT=3128
++SSRF_COREDUMP_DIR=/var/spool/squid
++SSRF_REVERSE_PROXY_PORT=8194
++SSRF_SANDBOX_HOST=sandbox
++SSRF_DEFAULT_TIME_OUT=5
++SSRF_DEFAULT_CONNECT_TIME_OUT=5
++SSRF_DEFAULT_READ_TIME_OUT=5
++SSRF_DEFAULT_WRITE_TIME_OUT=5
++
++# ------------------------------
++# docker env var for specifying vector db type at startup
++# (based on the vector db type, the corresponding docker
++# compose profile will be used)
++# if you want to use unstructured, add ',unstructured' to the end
++# ------------------------------
++COMPOSE_PROFILES=${VECTOR_STORE:-weaviate}
++
++# ------------------------------
++# Docker Compose Service Expose Host Port Configurations
++# ------------------------------
++EXPOSE_NGINX_PORT=80
++EXPOSE_NGINX_SSL_PORT=443
++
++# ----------------------------------------------------------------------------
++# ModelProvider & Tool Position Configuration
++# Used to specify the model providers and tools that can be used in the app.
++# ----------------------------------------------------------------------------
++
++# Pin, include, and exclude tools
++# Use comma-separated values with no spaces between items.
++# Example: POSITION_TOOL_PINS=bing,google
++POSITION_TOOL_PINS=
++POSITION_TOOL_INCLUDES=
++POSITION_TOOL_EXCLUDES=
++
++# Pin, include, and exclude model providers
++# Use comma-separated values with no spaces between items.
++# Example: POSITION_PROVIDER_PINS=openai,openllm
++POSITION_PROVIDER_PINS=
++POSITION_PROVIDER_INCLUDES=
++POSITION_PROVIDER_EXCLUDES=
++
++# CSP https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
++CSP_WHITELIST=
++
++# Enable or disable create tidb service job
++CREATE_TIDB_SERVICE_JOB_ENABLED=false
++
++# Maximum number of submitted thread count in a ThreadPool for parallel node execution
++MAX_SUBMIT_COUNT=100
++
++# The maximum number of top-k value for RAG.
++TOP_K_MAX_VALUE=10
++
++# ------------------------------
++# Plugin Daemon Configuration
++# ------------------------------
++
++DB_PLUGIN_DATABASE=dify_plugin
++EXPOSE_PLUGIN_DAEMON_PORT=4442
++PLUGIN_DAEMON_PORT=4442
++PLUGIN_DAEMON_KEY=lYkiYYT6owG+71oLerGzA7GXCgOT++6ovaezWAjpCjf+Sjc3ZtU+qUEi
++PLUGIN_DAEMON_URL=http://plugin_daemon:4442
++PLUGIN_MAX_PACKAGE_SIZE=52428800
++PLUGIN_PPROF_ENABLED=false
++
++PLUGIN_DEBUGGING_HOST=0.0.0.0
++PLUGIN_DEBUGGING_PORT=4443
++EXPOSE_PLUGIN_DEBUGGING_HOST=localhost
++EXPOSE_PLUGIN_DEBUGGING_PORT=4443
++
++# If this key is changed, DIFY_INNER_API_KEY in plugin_daemon service must also be updated or agent node will fail.
++PLUGIN_DIFY_INNER_API_KEY=QaHbTe77CtuXmsfyhR7+vRjI/+XbV1AaFy691iy+kGDv2Jvy0/eAh8Y1
++PLUGIN_DIFY_INNER_API_URL=http://api:5001
++
++ENDPOINT_URL_TEMPLATE=https://dify.vsource.local/e/{hook_id}
++
++MARKETPLACE_ENABLED=true
++MARKETPLACE_API_URL=https://marketplace.dify.ai
++
++FORCE_VERIFYING_SIGNATURE=true
++
++PLUGIN_PYTHON_ENV_INIT_TIMEOUT=120
++PLUGIN_MAX_EXECUTION_TIMEOUT=600
++# PIP_MIRROR_URL=https://pypi.tuna.tsinghua.edu.cn/simple
++PIP_MIRROR_URL=
