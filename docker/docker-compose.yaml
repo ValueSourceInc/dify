@@ -480,7 +480,7 @@ services:
     ports:
       - '${API_PORT:-5001}:5001'
     depends_on:
-      - db
+      # - db
       - redis
     volumes:
       # Mount the storage directory to the container, for storing user files.
@@ -507,7 +507,7 @@ services:
       PLUGIN_MAX_PACKAGE_SIZE: ${PLUGIN_MAX_PACKAGE_SIZE:-52428800}
       INNER_API_KEY_FOR_PLUGIN: ${PLUGIN_DIFY_INNER_API_KEY:-QaHbTe77CtuXmsfyhR7+vRjI/+XbV1AaFy691iy+kGDv2Jvy0/eAh8Y1}
     depends_on:
-      - db
+      # - db
       - redis
     volumes:
       # Mount the storage directory to the container, for storing user files.
@@ -656,9 +656,9 @@ services:
       - '${EXPOSE_PLUGIN_DEBUGGING_PORT:-4443}:${PLUGIN_DEBUGGING_PORT:-4443}'
     volumes:
       - ./volumes/plugin_daemon:/app/storage
-    depends_on:
-      db:
-        condition: service_healthy
+    # depends_on:
+      # db:
+      #   condition: service_healthy
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
