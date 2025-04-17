@@ -854,6 +854,8 @@ services:
       - ./volumes/pgvector/data:/var/lib/postgresql/data
       - ./pgvector/docker-entrypoint.sh:/docker-entrypoint.sh
     entrypoint: ['/docker-entrypoint.sh']
+    ports:
+      - '${PGVECTOR_PORT:-5433}:5432'
     healthcheck:
       test: ['CMD', 'pg_isready']
       interval: 1s
