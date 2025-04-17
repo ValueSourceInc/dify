@@ -616,6 +616,7 @@ services:
       test: ['CMD', 'curl', '-f', 'http://localhost:8194/health']
     networks:
       - ssrf_proxy_network
+      - default
 
   # plugin daemon
   plugin_daemon:
