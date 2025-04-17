@@ -765,7 +765,6 @@ services:
   weaviate:
     image: semitechnologies/weaviate:1.19.0
     profiles:
-      - ''
       - weaviate
     restart: always
     volumes:
@@ -837,8 +836,8 @@ services:
   # The pgvector vector database.
   pgvector:
     image: pgvector/pgvector:pg16
-    profiles:
-      - pgvector
+    # profiles:
+      # - pgvector
     restart: always
     environment:
       PGUSER: ${PGVECTOR_PGUSER:-postgres}
