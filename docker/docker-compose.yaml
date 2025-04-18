@@ -584,7 +584,7 @@ services:
     image: redis:6-alpine
     restart: always
     environment:
-      REDISCLI_AUTH: ${REDIS_PASSWORD:-difyai123456}
+      REDISCLI_AUTH: "${REDIS_USERNAME:-default}:${REDIS_PASSWORD:-difyai123456}"
     volumes:
       # Mount the redis data directory to the container.
       - ./volumes/redis/data:/data
@@ -764,8 +764,8 @@ services:
   # The Weaviate vector store.
   weaviate:
     image: semitechnologies/weaviate:1.19.0
-    profiles:
-      - weaviate
+    # profiles:
+    #   - weaviate
     restart: always
     volumes:
       # Mount the Weaviate data directory to the con tainer.
