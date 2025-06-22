@@ -1,62 +1,6 @@
-![cover-v5-optimized](./images/GitHub_README_if.png)
-
-<p align="center">
-  📌 <a href="https://dify.ai/blog/introducing-dify-workflow-file-upload-a-demo-on-ai-podcast">Introducing Dify Workflow File Upload: Recreate Google NotebookLM Podcast</a>
-</p>
-
-<p align="center">
-  <a href="https://cloud.dify.ai">Dify Cloud</a> ·
-  <a href="https://docs.dify.ai/getting-started/install-self-hosted">Self-hosting</a> ·
-  <a href="https://docs.dify.ai">Documentation</a> ·
-  <a href="https://dify.ai/pricing">Dify edition overview</a>
-</p>
-
-<p align="center">
-    <a href="https://dify.ai" target="_blank">
-        <img alt="Static Badge" src="https://img.shields.io/badge/Product-F04438"></a>
-    <a href="https://dify.ai/pricing" target="_blank">
-        <img alt="Static Badge" src="https://img.shields.io/badge/free-pricing?logo=free&color=%20%23155EEF&label=pricing&labelColor=%20%23528bff"></a>
-    <a href="https://discord.gg/FngNHpbcY7" target="_blank">
-        <img src="https://img.shields.io/discord/1082486657678311454?logo=discord&labelColor=%20%235462eb&logoColor=%20%23f5f5f5&color=%20%235462eb"
-            alt="chat on Discord"></a>
-    <a href="https://reddit.com/r/difyai" target="_blank">  
-        <img src="https://img.shields.io/reddit/subreddit-subscribers/difyai?style=plastic&logo=reddit&label=r%2Fdifyai&labelColor=white"
-            alt="join Reddit"></a>
-    <a href="https://twitter.com/intent/follow?screen_name=dify_ai" target="_blank">
-        <img src="https://img.shields.io/twitter/follow/dify_ai?logo=X&color=%20%23f5f5f5"
-            alt="follow on X(Twitter)"></a>
-    <a href="https://www.linkedin.com/company/langgenius/" target="_blank">
-        <img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff"
-            alt="follow on LinkedIn"></a>
-    <a href="https://hub.docker.com/u/langgenius" target="_blank">
-        <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/langgenius/dify-web?labelColor=%20%23FDB062&color=%20%23f79009"></a>
-    <a href="https://github.com/langgenius/dify/graphs/commit-activity" target="_blank">
-        <img alt="Commits last month" src="https://img.shields.io/github/commit-activity/m/langgenius/dify?labelColor=%20%2332b583&color=%20%2312b76a"></a>
-    <a href="https://github.com/langgenius/dify/" target="_blank">
-        <img alt="Issues closed" src="https://img.shields.io/github/issues-search?query=repo%3Alanggenius%2Fdify%20is%3Aclosed&label=issues%20closed&labelColor=%20%237d89b0&color=%20%235d6b98"></a>
-    <a href="https://github.com/langgenius/dify/discussions/" target="_blank">
-        <img alt="Discussion posts" src="https://img.shields.io/github/discussions/langgenius/dify?labelColor=%20%239b8afb&color=%20%237a5af8"></a>
-</p>
-
-<p align="center">
-  <a href="./README.md"><img alt="README in English" src="https://img.shields.io/badge/English-d9d9d9"></a>
-  <a href="./README_TW.md"><img alt="繁體中文文件" src="https://img.shields.io/badge/繁體中文-d9d9d9"></a>
-  <a href="./README_CN.md"><img alt="简体中文版自述文件" src="https://img.shields.io/badge/简体中文-d9d9d9"></a>
-  <a href="./README_JA.md"><img alt="日本語のREADME" src="https://img.shields.io/badge/日本語-d9d9d9"></a>
-  <a href="./README_ES.md"><img alt="README en Español" src="https://img.shields.io/badge/Español-d9d9d9"></a>
-  <a href="./README_FR.md"><img alt="README en Français" src="https://img.shields.io/badge/Français-d9d9d9"></a>
-  <a href="./README_KL.md"><img alt="README tlhIngan Hol" src="https://img.shields.io/badge/Klingon-d9d9d9"></a>
-  <a href="./README_KR.md"><img alt="README in Korean" src="https://img.shields.io/badge/한국어-d9d9d9"></a>
-  <a href="./README_AR.md"><img alt="README بالعربية" src="https://img.shields.io/badge/العربية-d9d9d9"></a>
-  <a href="./README_TR.md"><img alt="Türkçe README" src="https://img.shields.io/badge/Türkçe-d9d9d9"></a>
-  <a href="./README_VI.md"><img alt="README Tiếng Việt" src="https://img.shields.io/badge/Ti%E1%BA%BFng%20Vi%E1%BB%87t-d9d9d9"></a>
-  <a href="./README_DE.md"><img alt="README in Deutsch" src="https://img.shields.io/badge/German-d9d9d9"></a>
-  <a href="./README_BN.md"><img alt="README in বাংলা" src="https://img.shields.io/badge/বাংলা-d9d9d9"></a>
-</p>
-
 Dify is an open-source LLM app development platform. Its intuitive interface combines agentic AI workflow, RAG pipeline, agent capabilities, model management, observability features, and more, allowing you to quickly move from prototype to production.
 
-## Quick start
+### Troubleshooting
 
 > Before installing Dify, make sure your machine meets the following minimum system requirements:
 >
@@ -91,6 +35,8 @@ Build and test powerful AI workflows on a visual canvas, leveraging all the foll
 Seamless integration with hundreds of proprietary / open-source LLMs from dozens of inference providers and self-hosted solutions, covering GPT, Mistral, Llama3, and any OpenAI API-compatible models. A full list of supported model providers can be found [here](https://docs.dify.ai/getting-started/readme/model-providers).
 
 ![providers-v5](https://github.com/langgenius/dify/assets/13230914/5a17bdbe-097a-4100-8363-40255b70f6e3)
+##### DB 中 schema 没生成 服务器报 500 怎么办？
+确保数据库中 `dify` db 存在
 
 **3. Prompt IDE**:
 Intuitive interface for crafting prompts, comparing model performance, and adding additional features such as text-to-speech to a chat-based app.
@@ -257,3 +203,80 @@ To protect your privacy, please avoid posting security issues on GitHub. Instead
 ## License
 
 This repository is available under the [Dify Open Source License](LICENSE), which is essentially Apache 2.0 with a few additional restrictions.
+
+
+<p align="center">
+  <a href="https://cloud.dify.ai">Dify Cloud</a> ·
+  <a href="https://docs.dify.ai/getting-started/install-self-hosted">Self-hosting</a> ·
+  <a href="https://docs.dify.ai">Documentation</a> ·
+  <a href="https://dify.ai/pricing">Dify edition overview</a>
+</p>
+
+
+# VS 私部署说明  
+
+Dify 原有的Docker 自带 11 个 container: 
+此库其中把 `nginx` 和 `db-1` (postgresql) 的container禁掉了
+
+ ✔ Network docker_ssrf_proxy_network  Created                                                                 0.1s 
+ ✔ Network docker_default             Created                                                                 0.0s 
+ ✔ Container docker-redis-1           Started                                                                 2.4s 
+ ✔ Container docker-ssrf_proxy-1      Started                                                                 2.8s 
+ ✔ Container docker-sandbox-1         Started                                                                 2.7s 
+ ✔ Container docker-web-1             Started                                                                 2.7s 
+ ✔ Container docker-weaviate-1        Started                                                                 2.4s 
+ X Container docker-db-1              Disabled                                                                 2.7s 
+ ✔ Container docker-api-1             Started                                                                 6.5s 
+ ✔ Container docker-worker-1          Started                                                                 6.4s 
+ X Container docker-nginx-1           Disabled   
+
+端口也改了
+
+## 关键文件
+- `docker/.env.vs.example`
+- `docker/docker-compose.yaml`
+- `vs-nginx.example.conf`
+## 部署方式:
+
+### Git
+```
+git clone git@github.com:ValueSourceInc/dify.git
+git checkout vs
+```
+
+### Nginx
+复制 `vs-nginx.example.conf` 到 `/etc/nginx/conf.d`
+检查dify.conf 的配置
+```
+cp vs-nginx.example.conf /etc/nginx/conf.d/dify.conf
+nginx -t
+systemctl restart nginx
+```
+
+### Docker
+```
+cd docker
+cp .env.vs.example .env
+```
+
+填写 `.env` 文件里数据库信息
+```
+DB_USERNAME={数据库用户名}
+DB_PASSWORD={数据库密码}
+```
+
+#### 启动
+启动前确保数据库中有 `dify` db instance
+```
+docker-compose up -d
+```
+
+### 关闭
+```
+docker-compose down
+```
+
+*重新生成schema*
+```
+docker compose restart api
+```
