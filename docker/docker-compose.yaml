@@ -1028,7 +1028,7 @@ services:
       - '${EXPOSE_PLUGIN_DEBUGGING_PORT:-4443}:${PLUGIN_DEBUGGING_PORT:-4443}'
     volumes:
       - ./volumes/plugin_daemon:/app/storage
-    depends_on:
+    # depends_on:
       # db_postgres:
       #   condition: service_healthy
       #   required: false
