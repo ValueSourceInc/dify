@@ -1028,6 +1028,8 @@ services:
       - '${EXPOSE_PLUGIN_DEBUGGING_PORT:-4443}:${PLUGIN_DEBUGGING_PORT:-4443}'
     volumes:
       - ./volumes/plugin_daemon:/app/storage
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
     # depends_on:
       # db_postgres:
       #   condition: service_healthy
